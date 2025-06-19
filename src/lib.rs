@@ -11,7 +11,7 @@ pub fn extract_tx_version(raw_tx_hex: &str) -> Result<u32, String> {
     // Decode hex to bytes
     let version_bytes = hex::decode(version_hex).map_err(|_| "Hex decode error".to_string())?;
 
-    // Convert bytes to u32 (little-endian for Bitcoin)
+    // Convert bytes to u32 (little-endian)
     let version = u32::from_le_bytes([
         version_bytes[0],
         version_bytes[1],
